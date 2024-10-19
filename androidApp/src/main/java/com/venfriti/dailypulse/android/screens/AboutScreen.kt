@@ -1,6 +1,5 @@
-package com.venfriti.dailypulse.android
+package com.venfriti.dailypulse.android.screens
 
-import android.inputmethodservice.Keyboard.Row
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
