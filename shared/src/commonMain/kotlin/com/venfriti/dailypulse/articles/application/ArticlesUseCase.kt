@@ -1,5 +1,7 @@
-package com.venfriti.dailypulse.articles
+package com.venfriti.dailypulse.articles.application
 
+import com.venfriti.dailypulse.articles.data.ArticlesRepository
+import com.venfriti.dailypulse.articles.data.ArticleRaw
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import kotlinx.datetime.TimeZone
@@ -9,10 +11,10 @@ import kotlinx.datetime.todayIn
 import kotlin.math.abs
 
 class ArticlesUseCase(
-    private val service: ArticlesService
+    private val repo: ArticlesRepository
 ) {
-    suspend fun getArticles(): List<Article> {
-        val articlesRaw = service.fetchArticles()
+    suspend fun getArticles(forceFetch: Boolean): List<Article> {
+        val articlesRaw = repo.getArticles(forceFetch)
         return mapArticles(articlesRaw)
     }
 

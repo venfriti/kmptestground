@@ -1,9 +1,11 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
-    id("co.touchlab.skie") version "0.4.19"
-    kotlin("plugin.serialization") version "2.0.0"
+    alias(libs.plugins.skie)
+    kotlin("plugin.serialization") version("2.0.0")
+    alias(libs.plugins.sqlDelight)
 }
+
 
 kotlin {
     androidTarget {
@@ -33,13 +35,16 @@ kotlin {
             implementation(libs.ktor.serialization.kotlinx.json)
             implementation(libs.kotlinx.datetime)
             implementation(libs.koin.core)
+            implementation(libs.sql.coroutines.extensions)
         }
         androidMain.dependencies {
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.ktor.client.android)
+            implementation(libs.sql.android.driver)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
+            implementation(libs.sql.native.driver)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -61,6 +66,14 @@ android {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
             excludes += "META-INF/versions/9/previous-compilation-data.bin"
+        }
+    }
+}
+
+sqldelight {
+    databases {
+        create(name = "DailyPulseDatabase") {
+            packageName.set("venfriti.dailypulse.db")
         }
     }
 }

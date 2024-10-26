@@ -1,4 +1,4 @@
-package com.venfriti.dailypulse.articles
+package com.venfriti.dailypulse.articles.data
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

@@ -1,4 +1,4 @@
-package com.venfriti.dailypulse.articles
+package com.venfriti.dailypulse.articles.application
 
 data class Article(
     val title: String,

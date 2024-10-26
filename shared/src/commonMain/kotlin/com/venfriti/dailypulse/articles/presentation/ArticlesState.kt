@@ -1,4 +1,6 @@
-package com.venfriti.dailypulse.articles
+package com.venfriti.dailypulse.articles.presentation
+
+import com.venfriti.dailypulse.articles.application.Article
 
 data class ArticlesState (
     val articles: List<Article> = listOf(),

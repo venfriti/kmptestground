@@ -12,8 +12,6 @@ import androidx.navigation.compose.rememberNavController
 import com.venfriti.dailypulse.android.screens.AboutScreen
 import com.venfriti.dailypulse.android.screens.ArticlesScreen
 import com.venfriti.dailypulse.android.screens.Screens
-import com.venfriti.dailypulse.articles.ArticlesViewModel
-import org.koin.androidx.compose.getViewModel
 
 @Composable
 fun AppScaffold(){
